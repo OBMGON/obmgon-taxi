@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Cloud</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Panel del chat">
+        <div class="brand">
+          <span class="brand-mark">CC</span>
+          <div>
+            <h1>Chat Cloud</h1>
+            <p>Un chat creado desde cero en la nube.</p>
+          </div>
+        </div>
+
+        <button class="new-chat-button" id="newChat" type="button">
+          Nuevo chat
+        </button>
+
+        <section class="tip-card">
+          <h2>Privado en este navegador</h2>
+          <p>
+            Los mensajes se guardan con localStorage y no dependen de tu Mac.
+          </p>
+        </section>
+
+        <section class="quick-actions" aria-label="Respuestas rapidas">
+          <h2>Prueba rapida</h2>
+          <button class="quick-reply" type="button" data-message="Hola">
+            Hola
+          </button>
+          <button class="quick-reply" type="button" data-message="Necesito ayuda">
+            Necesito ayuda
+          </button>
+          <button class="quick-reply" type="button" data-message="Gracias">
+            Gracias
+          </button>
+        </section>
+      </aside>
+
+      <section class="chat-panel" aria-label="Aplicacion de chat">
+        <header class="chat-header">
+          <div class="conversation-meta">
+            <h2>Conversacion</h2>
+            <p>Escribe abajo y recibe una respuesta automatica local.</p>
+          </div>
+          <button class="clear-button" id="clearChat" type="button">
+            Limpiar
+          </button>
+        </header>
+
+        <section
+          class="messages"
+          id="chatLog"
+          aria-live="polite"
+          aria-label="Mensajes del chat"
+        ></section>
+
+        <form class="composer" id="chatForm">
+          <label class="sr-only" for="messageInput">Escribe un mensaje</label>
+          <textarea
+            id="messageInput"
+            name="message"
+            rows="1"
+            placeholder="Escribe aqui..."
+            autocomplete="off"
+            required
+          ></textarea>
+          <button class="send-button" type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <template id="messageTemplate">
+      <article class="message">
+        <div class="message-bubble">
+          <strong class="message-author"></strong>
+          <p class="message-text"></p>
+        </div>
+        <time class="message-time"></time>
+      </article>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
